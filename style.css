@@ -5,7 +5,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
 @charset "utf-8";
 body { margin:0; padding:0; width:100%; color: #2c3e50; font:12px/1.8em "Satyr10", "Georgia", serif;}
-html, .main { padding:0; margin:0; background-color:#fff;}
+html { padding:0; margin:0; background-color:#fff;}
 .clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
 h1 { margin:0; padding:36px 0 0px 20px; color:#0079bf; font:40px/1.2em "Satyr10", "Georgia", serif;}
 h1 a, h1 a:hover { color:#762a83; text-decoration:none;}
@@ -117,71 +117,108 @@ ul#group-member li {
   float: left;
 }
 
-#group-member img{
-  height: 216px;
+#single-canvas-wrapper {
+    overflow-x: scroll;
 }
 
-.fixed-width-180{
-  position: relative;
-  width: 210px;
-  float: left;
-  padding-left: 15px;
-  padding-right: 15px;
-
+.main {
+    width: 960px;
+    margin: 0 auto;
 }
 
-.post, aside{
-  background-color: #fff;
-  box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+.node text {
+    pointer-events: none;
+    font: 14px sans-serif;
+    fill: #777777;
+}
+.custom-select {
+    display: inline-block;
+    float: right;
 }
 
-.people {
-  color: white;
-  padding-top: 5px;
-  text-align:center;
-  padding-bottom: 5px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+#description {
+    margin-top: 15px;
 }
 
-.people a:hover{
-  color: white;
+#graph-des {
+    margin-top: 10px;
 }
 
-.people a{
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
+#materials {
+    margin-top: 20px;
+    font-size: 16px;
 }
 
-.faculty, .color-red{
-  background-color: #e12727;
+.graph-des-item {
+    width: 250px;
+    font-size: 16px;
+    display: inline-block;
 }
 
-.phd, .color-blue{
-  background-color: #0079bf;
+.graph-des-item p{
+    display: inline-block;
 }
 
-.mphil, .color-yellow{
-  background-color: #ffa810;
+#btn-group {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
-.intern, .color-green{
-  background-color: #00c012;
+#btn-group button{
+    cursor: pointer;
 }
 
-.teaser img {
-    max-width: 220px;
-    max-height: 130px;
-    width: 220px;
-    height: 130px;
+.invisible {
+    display: none;
 }
 
-.materials {
-    font-size: 18px;
+#single-visualization {
+    height: 300px;
+    position: relative;
+}
+#group-visualization {
+    height: 560px;
+    position: relative;
+}
+
+#single-visualization-wrapper,#group-visualization-wrapper{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.bar {
+    fill: #6F257F;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #D4D8DA;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+.x path {
+    display: none;
+}
+.toolTip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+}
+
+#bar-chart-canvas,
+#meta-info-text {
+    display: inline-block;
+}
+#meta-info-text {
+    width: 20%;
+    height: 300px;
+    padding-top: 10px;
+    float: right;
 }

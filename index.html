@@ -2,33 +2,70 @@
 
 <html>
     <head>
-        <title>Privacy-Preserving Recommendation of Abnormal User Behavior using Multilayer Network Framework</title>
+        <title>Privacy-Preserving Recommendation of Abnormal User Behavior using Multilayer Network Analysis</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="./bootstrap.css" rel="stylesheet">
+        <link href="./bootstrap.min.css" rel="stylesheet">
         <link href="./slider.css" rel="stylesheet">
         <link href="./box.css" rel="stylesheet">
         <link href="./style.css" rel="stylesheet" type="text/css" />
+        <script src="jquery.min.js"></script>
         <script src="d3.min.js"></script>
-        <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
-        <!-- CuFon ends -->
     </head>
     <body>
         <div class="main">
-            <div class="container content_resize">
-                <div class="row">
-                    <div class="span10">
                         <div id="header">
-                            <h1 style="padding-left:0; color:Blue;font-size:30px">
-                                Privacy-Preserving Recommendation of Abnormal User Behavior using Multilayer Network Framework
+                            <h1 style="padding-left:0; color:black;font-size:30px">
+                                Privacy-Preserving Recommendation of Abnormal User Behavior using Multilayer Network Analysis
                             </h1>
-                            <h4 style="padding-left: 0">
+                            <h4 style="padding-left: 0; display: inline-block">
                                 Author I, Author II, Author III, Author IV, ...
                             </h4>
                         </div>
-                        <br>
-                        <div id="canvas-wrapper">
-                            <svg id="canvas">
+                        <div id="btn-group">
+                            <button type="button" class="btn btn-link"
+                                id="group-btn">Overview</button>
+                            |
+                            <button type="button" class="btn btn-link"
+                                id="single-btn">Individual View</button>
+                        </div>
+                        <div id="group-visualization">
+                            <div id="group-visualization-wrapper">
+                                <div id="group-canvas-wrapper">
+                                    <svg id="group-canvas">
+                                    </svg>
+                                </div>
+                                <div id="graph-des">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="group-data-selector">
+                                        <option selected>Choose...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="single-visualization" class="invisible">
+                            <div id="single-visualization-wrapper">
+                                <div id="single-canvas-wrapper">
+                                    <svg id="single-canvas">
+                                    </svg>
+                                </div>
+                                <div id="graph-des">
+                                    <div class="graph-des-item">Number of nodes: <p id="single-node-num"></p></div>
+                                    <div class="graph-des-item">Number of time steps: <p id="single-time-num"></p></div>
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="single-data-selector">
+                                        <option selected>Choose...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="meta-info" class="invisible">
+                            <svg id="bar-chart-canvas" width=0 height=0>
                             </svg>
+                            <div id="meta-info-text">
+                                <p>Analysis Results:</p>
+                                <p>1. User Security Score:</p>
+                                <p id="score-text"></p>
+                                <p>2. Reasoning: </p>
+                                <p id="reasoning-text"></p>
+                            </div>
                         </div>
                         <div id="description">
                             <h3>
@@ -47,9 +84,6 @@
                                 <a href="#" class="link">Supplementary Materials</a> |
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
             <div class="footer">
                 <div class="footer_resize">
                     <p class="lf">&copy; Copyright (C) 2017 All Rights Reserved.</p>
