@@ -50,7 +50,26 @@ function drawBarChart(graph, index) {
                     .style("display", "inline-block")
                     .html((d.id) + ': ' + (d.score));
             })
-            .on("mouseout", function(d){ tooltip.style("display", "none");});
+            .on("mouseout", function(d){ tooltip.style("display", "none");})
+            .on('click', function(d) {
+                var nodes = d.nodes;
+                d3.selectAll('.node circle')
+                    .attr('fill', function(dd) {
+                        if (!this.highlighted) {
+                            this.originalColor = d3.select(this).attr('fill');
+                        }
+                        if (nodes.includes(dd.originalID)) {
+                            if (this.highlighted) {
+                                this.highlighted = false;
+                                return this.originalColor;
+                            } else {
+                                this.highlighted = true;
+                                return '#6F257F';
+                            }
+                        }
+                        return this.originalColor;
+                    })
+            });
     }
 }
 function drawGraph(graph, config, svg, color) {
@@ -185,8 +204,6 @@ function drawGraph(graph, config, svg, color) {
         .style('border', '1px solid #999999');
     d3.json('single-data.json', function(data) {
         singleData = data;
-        console.log('singleData');
-        console.log(singleData);
         var dataLen = data.length;
         for (var i = 0; i < dataLen; i++) {
             $('#single-data-selector')
@@ -230,8 +247,6 @@ function drawGraph(graph, config, svg, color) {
     });
     d3.json('group-data.json', function(data) {
         groupData = data;
-        console.log('groupData');
-        console.log(groupData);
         var dataLen = data.length;
         for (var i = 0; i < dataLen; i++) {
             $('#group-data-selector')

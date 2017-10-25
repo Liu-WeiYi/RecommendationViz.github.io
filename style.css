@@ -190,6 +190,7 @@ ul#group-member li {
 
 .bar {
     fill: #6F257F;
+    cursor: pointer;
 }
 .axis path,
 .axis line {
